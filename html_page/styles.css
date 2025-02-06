@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    background-color: lightslategray;
+}
+
+.centerContent {
+    text-align: center;
+    margin:auto;
+    
+}
+#navigation {
+    background-color: lightgray;
+    padding: 10px 0;
+    text-align: center;
+    margin: 0;
+    
+}
+li {
+    display: inline; 
+    margin-right: 10px;
+    font-size: 18px;
+}
+a {
+    color: black;
+}
+ul {
+    list-style-type: none;
+    text-decoration: none;
+}
+.center-vertically {
+    display: flex;
+    align-items: center;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    background-color: rgb(119, 118, 118);
+    width: 300px;
+    border: 2px dotted black;
+}
+label input {
+    margin-bottom: 5px;
+}
+#Content-A {
+    background-color: #2C2b30;
+    color: white;
+    display: grid;
+    place-items: center; /* Center both horizontally and vertically */
+    height: 100vh;  
+}
+p {
+    
+}
+main {
+    background-color: lightgray;
+    padding: 10px;
+    margin-top: 20px;
+    
+}
+#Content-B {
+    background-color: lightblue;
+}
+
+footer {
+    background-color: lightslategray;
+}
+
+table {
+    background-color: rgb(156, 156, 156);
+}
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+
+
+
+/*this gives certain CSS when the screen width is less than 992 pixels*/
+@media screen and (max-width: 992px) {
+    body {
+      background-color: blue;
+     
+    }
+    /*Horizontally aligns the welcome message*/
+    main {
+        display: flex; /* Use flexbox to align items horizontally */
+        justify-content: flex-start; /* Align items to the left */
+        gap: 20px;
+    }
+    
+    /*I make the images very small when the screen on the webpage is small*/
+    img {
+        width: 20%;
+    }
+
+  }
+
+ 

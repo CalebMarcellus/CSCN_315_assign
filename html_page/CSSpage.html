@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed CSS</title>
+    <!-- Below is a embedded style sheet -->
+
+    <style>
+        /* The CSS #footer is an ID for the section called footer.
+        It aligns text to the center and fixes it to the bottom of the webpage*/
+        #footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            
+        }
+        
+        /*Below this is a class called center-content that centers all content
+        that uses this tag*/
+        .center-content {
+            margin: auto;
+            text-align: center;
+        }
+        /*This targets every unordered list to remove bullet point and have
+        no margins*/
+        ul {
+            list-style-type: none; /* Removes bullet points */
+            padding: 0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            display: inline; /* Makes each list item appear on the same line */
+            margin-right: 10px; /* Optional: Adds space between items */
+            text-decoration:none;
+            
+            display: inline-block;
+        }
+        /*a is the hyperlink text inside each list item and colors them 
+        black at a bigger font size*/
+        a {
+            color:black;
+            font-size: 18px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            
+
+        }
+        /*This is a condition CSS block. whenever a user hovers over an
+        a href element it colors the backround differently*/
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+        nav {
+            background-color: lightgray;
+            padding: 10px 0;
+            text-align: center;
+            margin: 0;
+        }
+        /*Here is another ID CSS statement. Targets only one elemtent with 
+        paragraph*/
+        #paragraph {
+            background-color: lightgray;
+            
+        }
+        body {
+            background-color: #2C2b30;
+            margin-top: 0%;
+        }
+        footer {
+            background-color: lightgray;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="center-content">
+            <ul  style="text-decoration: none;">
+                <!--Here is a bunch of inline style that takes away the underline
+                on the links-->
+                <li><a style="text-decoration: none;" href="index.html">Home</a></li>
+                
+                <li><a style="text-decoration: none;" href="CSSpage.html">Embedded Style</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+     <!--main has a class and a ID-->
+    <main class="center-content" ID="paragraph">
+        <section>
+            <h1>Welcome to the inline and embedded Website</h1>
+            <p>This page will show off the cool CSS I have been working on.</p>
+        </section>
+
+        <!-- Example of another section -->
+        <section>
+            <h2>About Us</h2>
+            <p>This website serves as an experiment of CSS.</p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+     <!--has a class and ID for different styles-->
+    <footer class="center-content" ID="footer">
+        <p>&copy; 2025 Caleb Marcellus. All rights reserved.</p>
+    </footer>
+
+    
+    
+</body>
+</html>
