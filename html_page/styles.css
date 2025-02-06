@@ -31,34 +31,40 @@ ul {
     display: flex;
     align-items: center;
 }
-
+/*ID of form*/
 #login {
+    /*changes the label and input items to be on seperate lines*/
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    
     background-color: rgb(119, 118, 118);
+    /*change width of form and make a border around it*/
     width: 300px;
     border: 2px dotted black;
 }
 label input {
     margin-bottom: 5px;
 }
+/*Section for table and math games*/
 #Content-A {
     background-color: #2C2b30;
+    /*set text to white*/
     color: white;
+    /*makes grid for items in section then centers them*/
     display: grid;
     place-items: center; /* Center both horizontally and vertically */
     height: 100vh;  
 }
-p {
-    
-}
+/*section with welcome message*/
 main {
+    
     background-color: lightgray;
     padding: 10px;
     margin-top: 20px;
     
 }
+/*section with alaska photos*/
 #Content-B {
     background-color: lightblue;
 }
@@ -70,6 +76,7 @@ footer {
 table {
     background-color: rgb(156, 156, 156);
 }
+/*changes the links when you hover over them*/
 nav ul li a:hover {
     background-color: #575757;
 }
