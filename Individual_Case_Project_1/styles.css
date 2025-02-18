@@ -68,7 +68,7 @@ footer li{
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    
     padding: 0;
     
 }
@@ -111,4 +111,101 @@ body {
 }
 .item-search-bar li button:hover {
     background-color: #e53935;
+}
+/*Map CSS*/
+#map-heading {
+    background-color: #FFA500; /* Orange */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+}
+
+.map-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.store-selection-box {
+    background-color: lightgray; /* Light Gray */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.store-selection-box select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+}
+
+#map {
+    width: 80%;
+    height: 400px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+input[type=text] input[type=password] input[type=email] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+  }
+
+form {
+    
+    width: 450px;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    padding: 25px;
+    margin: 20px;
+}
+form input {
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 16px;
+
+}
+form label {
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+form button {
+    color: #fff;
+    cursor: pointer;
+    background-color: #fe732e;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    
+    
+}
+#Login {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+button {
+    margin: 10px;
+    
 }

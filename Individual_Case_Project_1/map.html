@@ -3,59 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Store and Show Map</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: white;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #FFA500; /* Orange */
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 24px;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .store-selection-box {
-            background-color: lightgray; /* Light Gray */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: white;
-        }
-
-        #map {
-            width: 80%;
-            height: 400px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-        }
-    </style>
+    <title>map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
@@ -72,53 +22,25 @@
             <li><a href="Profile.html">Profile</a></li>
         </ul>
     </nav>
+    <div id="map-heading">
+        <h1>Grocery List</h1>
+    </div>
 </header>
 
-<div class="container">
+<div class="map-content">
     <div class="store-selection-box">
         <label for="storeSelect">Select a Store</label>
-        <select id="storeSelect" onchange="showStoreMap()">
+        <select id="storeSelect">
             <option value="">--Choose a Store--</option>
-            <option value="store1">Store 1</option>
-            <option value="store2">Store 2</option>
-            <option value="store3">Store 3</option>
+            <option value="store1">Walmart</option>
+            <option value="store2">Target</option>
+            <option value="store3">Kroger</option>
         </select>
     </div>
 
     <div id="map"></div>
 </div>
 
-<script>
-    function showStoreMap() {
-        const storeSelect = document.getElementById("storeSelect");
-        const store = storeSelect.value;
-        const mapContainer = document.getElementById("map");
-
-        // Clear previous map if there is one
-        mapContainer.innerHTML = "";
-
-        if (store) {
-            let mapSrc = "";
-
-            // Set the map URL for the selected store
-            if (store === "store1") {
-                mapSrc = "https://www.google.com/maps/embed/v1/place?q=Store+1+Location&key=YOUR_GOOGLE_MAPS_API_KEY";
-            } else if (store === "store2") {
-                mapSrc = "https://www.google.com/maps/embed/v1/place?q=Store+2+Location&key=YOUR_GOOGLE_MAPS_API_KEY";
-            } else if (store === "store3") {
-                mapSrc = "https://www.google.com/maps/embed/v1/place?q=Store+3+Location&key=YOUR_GOOGLE_MAPS_API_KEY";
-            }
-
-            // Create an iframe element to display the map
-            const iframe = document.createElement("iframe");
-            iframe.src = mapSrc;
-            iframe.width = "100%";
-            iframe.height = "100%";
-            iframe.style.border = "none";
-            mapContainer.appendChild(iframe);
-        }
-    }
-</script>
 
 </body>
 </html>

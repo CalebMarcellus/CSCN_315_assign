@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grocery List</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-       
-        
-        
-    </style>
+
 </head>
 <body>
     <header>
@@ -33,34 +29,10 @@
     <main class="center-content">
         <div class="item-search-bar">
             <input type="text" id="item" placeholder="Enter grocery item">
-            <button onclick="addItem()">Add to List</button>
+            <button>Add to List</button>
             <ul id="groceryList"></ul>
         </div>
     </main>
-    <script>
-        function addItem() {
-            var item = document.getElementById("item").value;
-            if (item === "") {
-                alert("Please enter a grocery item.");
-                return;
-            }
-            var ul = document.getElementById("groceryList");
-            var li = document.createElement("li");
-            li.textContent = item;
-
-            // Create remove button
-            var removeButton = document.createElement("button");
-            removeButton.textContent = "Remove";
-            removeButton.onclick = function() {
-                ul.removeChild(li);
-            };
-
-            li.appendChild(removeButton);
-            ul.appendChild(li);
-
-            // Clear the input field
-            document.getElementById("item").value = "";
-        }
-    </script>
+    
 </body>
 </html>
