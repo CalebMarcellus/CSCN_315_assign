@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- May have to delete this section-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Page Title</title>
+    <!-- Link to external CSS file (optional) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div id="logo-bar">
+            <img src="Logo.png">
+            
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="list.html">Grocery List</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section id="home">
+            <h1>Welcome to Our Website</h1>
+            <p>Introduction and brief content about the site.</p>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Information about the company or individual.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>Description of services offered.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>How to get in touch with us.</p>
+            <!-- Contact form (optional) -->
+            <form action="/submit-form" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+        <ul>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms-of-service">Terms of Service</a></li>
+        </ul>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
