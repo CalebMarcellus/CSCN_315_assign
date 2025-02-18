@@ -1,0 +1,114 @@
+
+
+#logo-bar {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 25vh; /* Full viewport height */
+    padding: 0%;
+}
+#logo-bar img {
+width: 200px;
+
+}
+.center-content {
+    margin:auto;
+    text-align: center;
+}
+.main-nav {
+    overflow: hidden;
+    background-color: lightgray;
+    justify-content: center;
+}
+.main-nav {
+    text-decoration: none;
+    display: flex;
+}
+.main-nav li {
+   
+    float: left;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 17px;
+}
+.main-nav a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    margin:auto;
+}
+
+.main-nav a:hover {
+    background-color: darkgray;
+    color: black;
+  }
+
+
+footer {
+    
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+footer li{
+    margin:auto;
+    list-style-type: none;
+}
+/* CSS for the list page */
+#list-heading {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container {
+    padding: 20px;
+}
+.item-search-bar input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+}
+.item-search-bar button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.item-search-bar button:hover {
+    background-color: #45a049;
+}
+.item-search-bar ul {
+    padding: 0;
+    list-style-type: none;
+}
+.item-search-bar li {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item-search-bar li button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.item-search-bar li button:hover {
+    background-color: #e53935;
+}
