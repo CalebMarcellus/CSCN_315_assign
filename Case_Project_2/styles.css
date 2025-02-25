@@ -241,3 +241,59 @@ button {
 .error {
     color:#ff3860;
 }
+
+
+
+
+
+
+
+/* Container to center content */
+#profile-content {
+    display: flex;
+    flex-direction: column;
+}
+#profile-text {
+    
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px;
+    
+}
+#user-info {
+    flex-direction: row;
+}
+/* Section Styling */
+#preferences, #Account-Settings {
+    background-color: #d7d1d1;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+#preferences h2, #Account-Settings h2 {
+    color: #333;
+}
+
+/* Styling for the content inside each section */
+#preferences p, #Account-Settings p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Styling for bold labels */
+strong {
+    color: #333;
+}
+
+/* Optional: Add a border between the two sections */
+#preferences {
+    border-bottom: 2px solid #e1e1e1;
+}
+
