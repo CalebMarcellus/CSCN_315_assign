@@ -210,12 +210,34 @@ button {
     
 }
 
-.error {
-    border-color: #ff3860;
-    color:#ff3860;
-    font-size: 9px;
-    height: 13px;
+/*This will hand the error message css*/
+.input-control {
+    display: flex;
+    flex-direction: column;
 }
-.success {
+.input-control input {
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.input-control.success input{
     border-color: #09c372;
+}
+.input-control.error input{
+    border-color: #ff3860;
+}
+.input-control .error {
+    color: #ff3860;
+    font-size: 11px;
+    height: 13px;
+    text-align: left;
+    vertical-align: text-top;
+    margin-bottom: 10px;
+}
+.error {
+    color:#ff3860;
 }
