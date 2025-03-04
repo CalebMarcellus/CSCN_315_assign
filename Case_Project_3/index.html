@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopGo Home</title>
+    <!-- Link to external CSS file (optional) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+</head>
+<body id="indexBody" >
+
+    <!-- Header Section -->
+    <header>
+        <div id="logo-bar">
+            <img src="Logo.png">
+            
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="list.html">Grocery List</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="center-content">
+        <section id="home">
+            <h1>Welcome to Shop & Go</h1>
+            <p>We aim to provide our customers the best experience while shopping at a store. Planning out routes throughout 
+                the store of your choice saving you time wondering the store for your item.
+            </p>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>This Idea was founded by the Software Engineer Tyler Sackel. With the help of other colleages such as Caleb Marcellus
+                to help bring his ideas to life. His aim was to make shopping as easy as possible for the customer without intruding on
+                customer's privacy.
+            </p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>The Starting features of the application is as follows. First we have a interface that allows customers to create their own
+                Grocery list from the items they need under the list tab. From there a customer can select the store they want to they buy the
+                items they selected under the Map page. This will create a map and plan out a route for them and showing them where all the items
+                are located. Finally a user can customize their profile prefrences under Profile. 
+            </p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>How to get in touch with us.</p>
+            <p>Phone Number: (***) ***-****</p>
+            
+        </section>
+        <H1>Change dark/light mode</H1>
+        <button onclick="lightMode()">
+            Change mode
+        </button>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="center-content">
+        <p>&copy; 2025 Shop & Go. All rights reserved.</p>
+        <ul>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms-of-service">Terms of Service</a></li>
+        </ul>
+    </footer>
+
+    
+    <script>
+        //I had to put this out here because we needed to initialize back
+        //background color for the if statement.
+        let body = document.getElementById("indexBody");
+        body.style.backgroundColor = "white";
+        function lightMode() {
+            //I make my two colors for the background of the page.
+            let blackcolor = 'darkgray';
+            let whitecolor = 'white';
+            
+            // I retrieve the ID of the body tag 
+            let body = document.getElementById("indexBody");
+            //I check the background color then assign the opposite color
+            if (body.style.backgroundColor === "white"){
+                body.style.backgroundColor = blackcolor;
+                body.style.color = "white";
+                
+            }
+            else {
+                body.style.backgroundColor = whitecolor;
+                body.style.color = "black";
+            }
+            //sends alert to the user that the background changed.
+            alert("You have changed the background.")
+
+        }
+       
+
+        
+
+    </script>
+
+</body>
+</html>
