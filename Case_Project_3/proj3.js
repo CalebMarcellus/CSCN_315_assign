@@ -5,6 +5,7 @@ let GroceryData = [];
 let GroceryPrices = [];
 
 addItemButton.addEventListener('click', function() {
+    //The only valid grocery items are milk,flour, cheddar cheese, and 
 addItem(GroceryData);
 addPrice(GroceryData, GroceryPrices)
 console.log(GroceryPrices)
@@ -14,11 +15,16 @@ function addItem(dataArray) {
     
     var item = document.getElementById("item").value.trim();
     if (item === "") {
-        alert("Please enter a grocery item.");
+        //makes error message
+        const divcontrol = addItemButton.parentElement;
+        const listError = divcontrol.querySelector('p');
+        listError.innerText = "Not a valid grocery item.";
+        listError.classList.add('error');
+        listError.classList.remove('success');
         return;
     }
     else if (validateItem(item)){
-        alert("That isn't a item")
+        //makes error message
         const divcontrol = addItemButton.parentElement;
         const listError = divcontrol.querySelector('p');
         listError.innerText = "Not a valid grocery item.";
@@ -29,7 +35,7 @@ function addItem(dataArray) {
     else{
         //adds the data to an Array 
         dataArray.push(item);
-
+        //gets rid of error message
         const divcontrol = addItemButton.parentElement;
         const listError = divcontrol.querySelector('p');
         listError.innerText = "";
@@ -50,7 +56,7 @@ function addItem(dataArray) {
         ul.removeChild(li);
 
     };
-
+    //puts the elements in the correct spot
     li.appendChild(removeButton);
     ul.appendChild(li);
 
@@ -60,6 +66,7 @@ function addItem(dataArray) {
 
 function addPrice(dataArray, priceArray){
     let index = 0;
+    //A for loop that ineffectively loops through every item and assigns a price to it
 for(let item of dataArray){
     
     switch(item) {
@@ -80,7 +87,7 @@ for(let item of dataArray){
             break;
         default:
             console.error("No existing price reference.");
-            let notItem = true;
+            
 
 
     }
@@ -90,6 +97,8 @@ for(let item of dataArray){
 function validateItem(item){
 
         console.log(item);
+
+        //checks if its a valid item listed below
         switch(item) {
             case "milk":
                 break;
