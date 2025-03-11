@@ -1,15 +1,25 @@
 
 
-#logo-bar {
+.logo-bar {
     display: flex; /* Enable flexbox */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 25vh; /* Full viewport height */
     padding: 0%;
 }
-#logo-bar img {
+.logo-bar img {
 width: 200px;
 
+}
+#list-logo {
+    background-image: url(GroceryList.jpg);
+    
+}
+#map-logo {
+    background-image: url(map-background.jpg);
+}
+#profile-logo {
+    background-image: url(profile-backround.jpg);
 }
 .center-content {
     margin:auto;
@@ -301,3 +311,150 @@ strong {
     border-bottom: 2px solid #e1e1e1;
 }
 
+#main-slideshow {
+    
+     background-color: #09c372;
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+    justify-content: center;
+    
+ 
+}
+#main-slideshow img{
+    width:200px;
+    
+    transition: 2s;
+}
+#main-slideshow input{
+    display: none;
+}
+.navigation-manual {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+.manual-btn {
+    border: 2px solid #45a049;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    height: 10px;
+}
+.manual-btn:not(:last-child){
+     margin-right: 40px;
+}
+.manual-btn:hover{
+    background:#45a049;
+}
+#radio1:checked ~ .first {
+margin-left: 0;
+}
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+#main-slideshow #Prev, #main-slideshow #Next {
+    position: relative;
+    display: flex;
+    
+    width: 5%;
+    height: 30px;
+    color: #d77a10;
+    text-shadow: 2px 2px 2px black;
+    font-size: 20px;
+    font-weight: bold;
+    top: 118px;
+    line-height: 30px;
+      
+    cursor: pointer;
+    user-select: none;
+ }
+
+ #main-slideshow #Images {
+    display: flex;
+    flex-direction: row;    
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    margin-right: 5px;  
+        
+ }
+ #Images img {
+    display: block;
+    width: 230px;
+    height: auto;
+    margin-right: 13px;
+    cursor: pointer;
+    outline: 2px solid #000000;
+    box-shadow: 3px 3px 10px black;  
+    user-select: none;   
+ }
+ #main-slideshow #Counter {
+    width: 70px;
+   height: 26px;
+   background-color: rgba(0,0,0,0.5);
+   color:white;
+   border-radius: 4px;
+   
+ }
+ #Overlay {
+    position: fixed;                       
+    z-index: 1;                             
+    width: 100%;                           
+    height: 100%;                          
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 94, 104, 0.85);  /* Semitransparent blue brackground */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ #Overlay figure {
+    display: block;
+    width: 80%;
+    max-width: 800px;
+ }
+ 
+
+ #Overlay figure img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    box-shadow: 5px 5px 20px black;
+    animation-name: zoom;      
+    animation-duration: 1s;   
+ }
+ 
+ /* Styles for the caption within the overlay */
+ #Overlay figure figcaption {
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    margin-top: 10px;
+    
+   
+ }
+ 
+ 
+ #Overlay #OverlayClose {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #f1f1f1;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+ }
