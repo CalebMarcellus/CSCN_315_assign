@@ -1,0 +1,303 @@
+
+
+#logo-bar {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 25vh; /* Full viewport height */
+    padding: 0%;
+}
+#logo-bar img {
+width: 200px;
+
+}
+.center-content {
+    margin:auto;
+    text-align: center;
+}
+.main-nav {
+    overflow: hidden;
+    background-color: lightgray;
+    justify-content: center;
+}
+.main-nav {
+    text-decoration: none;
+    display: flex;
+}
+.main-nav li {
+   
+    float: left;
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 17px;
+}
+.main-nav a {
+    color: black;
+    padding: 15px;
+    text-decoration: none;
+    margin:auto;
+}
+
+.main-nav a:hover {
+    background-color: darkgray;
+    color: black;
+  }
+
+
+footer {
+    
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+footer li{
+    margin:auto;
+    list-style-type: none;
+}
+/* CSS for the list page */
+#list-heading {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+    padding: 0;
+    
+}
+
+.container {
+    padding: 20px;
+}
+.item-search-bar input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    margin-right: 10px;
+}
+.item-search-bar button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.item-search-bar button:hover {
+    background-color: #45a049;
+}
+.item-search-bar ul {
+    padding: 0;
+    list-style-type: none;
+}
+.item-search-bar li {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item-search-bar li button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.item-search-bar li button:hover {
+    background-color: #e53935;
+}
+
+li {
+    
+}
+/*Map CSS*/
+#map-heading {
+    background-color: #fe732e; /* Orange */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+}
+
+.map-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.store-selection-box {
+    background-color: lightgray; /* Light Gray */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.store-selection-box select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+}
+
+#map {
+    width: 80%;
+    height: 400px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+input[type=text] input[type=password] input[type=email] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+  }
+
+form {
+    
+    width: 450px;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    padding: 25px;
+    margin: 20px;
+}
+form input {
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 16px;
+
+}
+form label {
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+form button {
+    color: #fff;
+    cursor: pointer;
+    background-color: #fe732e;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+    
+    
+}
+#Login {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+button {
+    margin: 10px;
+    
+}
+
+/*This will hand the error message css*/
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+.input-control input {
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.input-control.success input{
+    border-color: #09c372;
+}
+.input-control.error input{
+    border-color: #ff3860;
+}
+.input-control .error {
+    color: #ff3860;
+    font-size: 11px;
+    height: 13px;
+    text-align: left;
+    vertical-align: text-top;
+    margin-bottom: 10px;
+}
+.error {
+    color:#ff3860;
+}
+
+
+
+
+
+
+
+/* Container to center content */
+#profile-content {
+    display: flex;
+    flex-direction: column;
+}
+#profile-text {
+    
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px;
+    
+}
+#user-info {
+    flex-direction: row;
+}
+/* Section Styling */
+#preferences, #Account-Settings {
+    background-color: #d7d1d1;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+#preferences h2, #Account-Settings h2 {
+    color: #333;
+}
+
+/* Styling for the content inside each section */
+#preferences p, #Account-Settings p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Styling for bold labels */
+strong {
+    color: #333;
+}
+
+/* Optional: Add a border between the two sections */
+#preferences {
+    border-bottom: 2px solid #e1e1e1;
+}
+
