@@ -1,13 +1,13 @@
-//All the references to objects in my html that I need
-const username = document.getElementById('name');
-const password = document.getElementById('password');
-const email = document.getElementById('email');
-const fullName = document.getElementById('full_name');
-const confirmPassword = document.getElementById('confirm_pswd');
-const DOB = document.getElementById('DOB');
-const phoneNumber = document.getElementById('phone_number');
+//All the references to objects in my html that I need from the form inputs
+const username = document.forms["profileform"]["username"];
+const password = document.forms["profileform"]["password"];
+const email = document.forms["profileform"]["email"];
+const fullName = document.forms["profileform"]["full_name"];
+const confirmPassword = document.forms["profileform"]["confirm_pswd"];
+const DOB = document.forms["profileform"]["DOB"];
+const phoneNumber = document.forms["profileform"]["phone_number"];
 
-const form = document.getElementById('profileform');
+const form = document.forms["profileform"];
 const errorElement = document.getElementById('error');
 const mainContent = document.getElementById('profile-content');
 const errorMessage = document.getElementsByClassName('error');
@@ -16,29 +16,39 @@ const errorMessage = document.getElementsByClassName('error');
 form.addEventListener("submit", function(event) {
     //stops reload of window
     event.preventDefault();
-    
-    
-    //if the input from the user is good then display account
-    if (validateinput()){
-        registerUser(username.value, password.value)
-        window.location.href = "Profile.html";
+    //this try block will catch any errors that show up and then display an error message.
+    try { 
+        //goes to profile page if all fields are filled out.
+        if (validateinput()){
+        
+            window.location.href = "Profile.html";
+        }
     }
+    catch (error) {
+        console.error("An error was found:", error.message);
+       
+    }
+   
+   
 });
-function calculateDOB(currYear, userAge) {
+function calculateAge(currYear, dateOfBirth) {
 //calculates year of birth
-let BirthYear = currYear - userAge;
-console.log("Date of Birth calculated.");
-return BirthYear;
+BirthYear = new Date(dateOfBirth);
+let userAge = currYear - BirthYear.getFullYear();
+
+console.log("Age calculated.");
+return userAge;
 }
 
  function setError(element, message)
 {   //goes into the div element in html then searches p tag to 
     // add a message to it. 
     const formcontrol = element.parentElement;
-    const errorDisplay = formcontrol.querySelector('error');
+    const errorDisplay = formcontrol.querySelector('.error');
     
 
     errorDisplay.innerText = message;
+    errorDisplay.innerHTML = message;
     //formcontrol.classlist.add('error');
     //formcontrol.classlist.remove('success');
 }
@@ -46,7 +56,7 @@ return BirthYear;
 function setSuccess(element) {
     //same thing as above but gets rid of error string
     const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('error');
+    const errorDisplay = inputControl.querySelector('.error');
 
     errorDisplay.innertext = '';
     errorDisplay.innerHTML = '';
@@ -63,22 +73,24 @@ function validateinput() {
     const Confirmvalue = confirmPassword.value.trim();
     const DOBvalue = DOB.value.trim();
     const phonevalue = phoneNumber.value.trim();
+    //These are the regex i used to error check
     let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/gm;
     let passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{10,20}$/gm;
     let usernameRegex = /^[A-Za-z][A-Za-z0-9]{5,14}$/gm;
     let fullNameRegex = /^[A-Za-z]+( [A-Za-z]+)*$/gm;
+    let phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/gmi;
     //used to keep track of errors
     let isvalid = true;
 
     if (fullNamevalue === ''){
         //checks to see if name field is not put in
-        setError(fullName,'Full name field must not be empty!');
+        setError(fullName,"Full name field must not be empty!");
         //log error to console
         console.error("No input provided.");
         isvalid = false;
         
-    }
-    else if (fullNameRegex.test(fullNamevalue))
+    } //I see if the regex matches with the user string than I not it because if it does not match then execute the below statments
+    else if (!fullNameRegex.test(fullNamevalue))
     {
         setError(fullName, 'Full name must not contain any special characters!');
         isvalid = false;
@@ -102,7 +114,7 @@ function validateinput() {
         setError(password, 'Password must be at least 10 characters long');
         isvalid = false;
     }
-    else if (passwordRegex.test(passwordValue)){
+    else if (!passwordRegex.test(passwordValue)){
         setError(password, 'Password must at least one upper case English letter, one lower case English letter, one number and one special character');
         isvalid = false;
     }
@@ -116,7 +128,7 @@ function validateinput() {
         console.error("No input provided.");
         isvalid = false;
     }
-    else if (usernameRegex.test(namevalue)) {
+    else if (!usernameRegex.test(namevalue)) {
         setError(username, 'UserName must be between 6 and 16 characters and cannot start with a number!');
         isvalid = false;
     }
@@ -130,7 +142,7 @@ function validateinput() {
         setError(email, 'Email is a Required field!');
         isvalid = false;
     }
-    else if (emailRegex.test(emailValue)){
+    else if (!emailRegex.test(emailValue)){
         setError(email, 'Please enter a correct email address!');
         isvalid = false;
     }
@@ -155,24 +167,39 @@ function validateinput() {
             setSuccess(confirmPassword);
         }
 
-        if (Confirmvalue === '')
-            {
+            if (calculateAge(2025, DOBvalue) < 18){
+                //checks to see if name field is not put in
+                setError(DOB,'User must be at least 18 years old.');
+                //log error to console
+                console.error("User is underage.");
+                isvalid = false;
+                
+            }else if (DOBvalue === ""){
+                setError(DOB,'The Date of Birth field must be filled!');
+                //log error to console
                 console.error("No input provided.");
-                setError(confirmPassword, 'You must enter your password twice!');
                 isvalid = false;
             }
-            else if (Confirmvalue != passwordValue)
-            {
-                setError(confirmPassword, 'Your passwords have to match!');
-                isvalid = false;
+            else {
+                setSuccess(DOB);
             }
-            else{
-                setSuccess(confirmPassword);
-            }
-    console.log(agevalue);
-    console.log(namevalue);
-    console.log(emailValue);
-    console.log(passwordValue);
+
+    if (phonevalue === ''){
+        //checks to see if name field is not put in
+        setError(phoneNumber,'phone number field must not be empty!');
+        //log error to console
+        console.error("No input provided.");
+        isvalid = false;
+        
+    }
+    else if (!phoneRegex.test(phonevalue))
+    {
+        setError(phoneNumber, 'Full name must not contain any special characters!');
+        isvalid = false;
+    }
+    else {
+        setSuccess(phoneNumber);
+    }
     return isvalid;
 }
 
