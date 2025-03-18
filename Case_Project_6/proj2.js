@@ -16,7 +16,7 @@ form.addEventListener("submit", function(event) {
     
     //if the input from the user is good then display account
     if (validateinput() || password.value === ''){
-        
+        window.location.href = "Profile.html";
         
     }
 });
@@ -145,4 +145,4 @@ function displayprofile() {
         emailDisplay.innerHTML = "<strong>Email: </strong>" + email.value;
         AgeDisplay.innerHTML = "<strong>Age: </strong>" + age.value;
 
-}window.location.href = "Profile.html";
+}
