@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- May have to delete this section-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile</title>
+    <!-- Link to external CSS file (optional) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script defer src="proj2.js"></script>
+    
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div id="profile-logo" class="logo-bar">
+            <img src="Logo.png">
+            
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="list.html">Grocery List</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="login.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="center-content" id="profile-content">
+        <h2>Login</h2>
+        <p>Please enter your username and Password</p>
+        <!--For error checking-->
+        
+        <section id="Login">
+        
+            <form method="post" id="profileform">
+                <div class="input-control">
+                    <label for="name">Username:</label>
+                    <input type="text" id="name" name="name" >
+                    <div class="error" id="name_error"></div>
+                </div>
+                <div class="input-control">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" >
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label for="password">Password:</label>
+                    <input type="text" id="password" name="password">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" >
+                    <div class="error"></div>
+                </div>
+                <button type="submit" id="profileSubmit">Submit</button>
+                <a href="register.html">Make a Account</a>
+            </form>
+        </section>
+   
+       
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="center-content">
+        <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+        <ul>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms-of-service">Terms of Service</a></li>
+        </ul>
+    </footer>
+
+    
+
+</body>
+</html>
