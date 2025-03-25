@@ -22,24 +22,37 @@ export class user {
    
 
 }
-function getUserFromLocal() {
-    const userData = localStorage.getItem("user");
-    if (userData) {
-        const parsedData = JSON.parse(userData);
-        return new user(parsedData.name, parsedData.age, parsedData.email);
-    }
-    return null; // Return null if no user data is found
-}
 
-function storeLocal(user) {
-    localStorage.setItem("user", JSON.stringify(user));
-}
-// Create a user instance
-const user = new user("John Doe", "john@example.com", 30);
-
-// Store it in localStorage
-storeLocal(user);
 
 // Retrieve and display the stored user
 const retrievedUser = getUserFromLocal();
 console.log(retrievedUser); // User { name: "John Doe", age: 30, email: "john@example.com" }
+export class task {
+    constructor() {
+        
+    }
+    
+    registerUser(userObject) {
+        let user = JSON.parse(localStorage.getItem(userObject.uName));
+        
+        if (username === user.uName) {
+            console.log('Username already exists. Choose a different one.');
+            return false;
+        }
+    
+       
+        
+    
+        localStorage.setItem(user.uName, JSON.stringify(userObject));
+        console.log('User registered successfully!');
+        return true;
+    }
+    getUserFromLocal(userName) {
+        const userData = localStorage.getItem("user");
+        if (userData) {
+            const parsedData = JSON.parse(userData);
+            return new user(parsedData.name, parsedData.age, parsedData.email);
+        }
+        return null; // Return null if no user data is found
+    }
+ }

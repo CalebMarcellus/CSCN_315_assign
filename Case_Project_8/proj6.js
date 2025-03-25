@@ -1,4 +1,4 @@
-import { user } from "./objects.js";
+import { user, task } from "./objects.js";
 //All the references to objects in my html that I need from the form inputs
 const username = document.forms["profileform"]["username"];
 const password = document.forms["profileform"]["password"];
@@ -8,6 +8,7 @@ const confirmPassword = document.forms["profileform"]["confirm_pswd"];
 const DOB = document.forms["profileform"]["DOB"];
 const phoneNumber = document.forms["profileform"]["phone_number"];
 
+const userExist = document.forms["profileform"]["terms"]
 const form = document.forms["profileform"];
 const errorElement = document.getElementById('error');
 const mainContent = document.getElementById('profile-content');
@@ -21,15 +22,30 @@ form.addEventListener("submit", function(event) {
     try { 
         //goes to profile page if all fields are filled out.
         if (validateinput()){
-        
-            window.location.href = "Profile.html";
+            //gets the value the user put in
+            const namevalue = username.value.trim();
+            const passwordValue = password.value.trim();
+            const emailValue = email.value.trim();
+            const fullNamevalue = fullName.value;
+            const DOBvalue = DOB.value.trim();
+            const phonevalue = phoneNumber.value.trim();
+            let curruser = new user(fullNamevalue,emailValue,0,passwordValue,namevalue,DOBvalue,phonevalue);
+            let taskregister = new task();
+            if (!taskregister.registerUser(curruser))
+            {
+                console.log("user already exist");
+                setError(userExist, "User already exist! Please enter another account.");
+            }
+            else {
+                window.location.href = "Profile.html";
+            }
         }
     }
     catch (error) {
         console.error("An error was found:", error.message);
        
     }
-   
+  
    
 });
 function calculateAge(currYear, dateOfBirth) {
@@ -66,6 +82,7 @@ function setSuccess(element) {
 }
 
 function validateinput() {
+    
     //gets the value the user put in
     const namevalue = username.value.trim();
     const passwordValue = password.value.trim();
@@ -202,25 +219,12 @@ function validateinput() {
         setSuccess(phoneNumber);
     }
     return isvalid;
+    
 }
 
 
 // Function to register a user
-function registerUser(username, password) {
-    let users = JSON.parse(localStorage.getItem('users')) || {};
-    
-    if (users[username]) {
-        console.log('Username already exists. Choose a different one.');
-        return false;
-    }
-    user()
-   
-    
-    users[username] = password;
-    localStorage.setItem('users', JSON.stringify(users));
-    console.log('User registered successfully!');
-    return true;
-}
+
 
 
 // Example usage:
