@@ -8,7 +8,7 @@
     
     border-radius: 10px;
 }
-#guessbutton {
+#point-counter {
     display: inline-block;
     background-color: #ff7f00;
     color: white;
@@ -37,7 +37,8 @@
     transition: all 0.3s ease;
     justify-content: center;
     margin-bottom: 10px;
-    
+
+
     width: 100px;
 }
 #upload-image input[type="file"] {
@@ -595,6 +596,14 @@ margin-left: 0;
     width: 100vw;
     height: auto;
     
+ }
+ #Shop-images {
+    border: 2px solid black;
+    box-shadow: #000000;
+    min-height: 400px;
+    height: auto;
+    margin: 15px;
+    margin-left: 27%;
  }
  #map-box {
     border: 2px solid black;
