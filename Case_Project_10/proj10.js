@@ -1,12 +1,14 @@
-import "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js";
+
 let correctLocation = [-79.188, 37.3537]; // Target coordinates (lat, lng)
 const snapThreshold = 0.01; // How close (in degrees) counts as "correct"
-const pointCounter = document.getElementById("point-counter");
-
-let points = 0;
-const fileInput = document.getElementById("fileInput")
+const pointCounter = document.getElementById("point-counter"); // pointer to keep track of score
+let startTime;
+let timerInterval;
+let points = 0; //global variable so I can access it multiple times in functions.
+//project 7 code below
+const fileInput = document.getElementById("fileInput");
 const imageContainer = document.getElementById("imageContainer");
-//project 7 code below 
+ 
 fileInput.addEventListener("change", function (event) {
     const file = event.target.files[0];
     if (file && file.type.startsWith("image/")) {
@@ -24,14 +26,26 @@ fileInput.addEventListener("change", function (event) {
         alert("Please select a valid image file.");
     }
 });
-
+//un used function. Purpose was to center the map around current position by fetching a API
+async function getLocation() {
+    try {
+      const response = await fetch("http://ip-api.com/json/");
+      const json = await response.json();
+      if (typeof json.lat === "number" && typeof json.lon === "number") {
+        return [json.lon, json.lat];
+      }
+    } catch (error) {}
+    return middleOfLynchburg;
+  }
+// The function below initializes the map displayed through maplibregl
 async function init() {
+    //variables have coordinates in them.
     const middleOfUSA = [-100, 40];
     const middleOfLynchburg = [-79.162, 37.39]
     let lnglat = null;
     
     const map = new maplibregl.Map({
-      style: "dark.json",
+      style: "dark.json", // A style sheet that I imported that styles the entire map.
       // style: "https://tiles.openfreemap.org/styles/liberty",
       center: middleOfUSA, // default location to look at.
       zoom: 2, // how close the map is
@@ -40,20 +54,22 @@ async function init() {
     });
   
     //const location = await getLocation();
-    //The coordinates of lynchburg is stored here
+    //The coordinates of lynchburg is stored here longitude/latitude
     const location = middleOfLynchburg;
     if (location !== middleOfUSA) {
+        //centers the camera at coordinates provided.
       map.flyTo({ center: location, zoom: 11});
-      
+      //create a pin on the map that can be draged by the player.
       let marker = new maplibregl.Marker({ draggable: true })
           .setLngLat(location)
           .addTo(map)
-          
+          // at the end of a user dragging the marker then store coords and check if it in
+          // the correct store location.
       marker.on("dragend", () => {
           const lngLat = marker.getLngLat();
           const distanceLng = Math.abs(lngLat.lng - correctLocation[0]);
           const distanceLat = Math.abs(lngLat.lat - correctLocation[1]);
-
+            //Threshold allows the pin to snap to correct location so it doesn't have to be precise
           if (distanceLng < snapThreshold && distanceLat < snapThreshold) {
               // Snap into place
               marker.setLngLat(correctLocation);
@@ -68,11 +84,13 @@ async function init() {
               
               
 
-      
+            //add to the points if correct
               points += 1;
               pointCounter.textContent = points;
               alert("Correct! Marker locked in.");
+              stopTimer();
           }
+          //store coords in url 
           const params = new URLSearchParams({
           longitude: lngLat.lng,
           latitude: lngLat.lat
@@ -94,18 +112,7 @@ async function init() {
   }
 
 window.addEventListener('DOMContentLoaded', () => {
-
-    async function getLocation() {
-      try {
-        const response = await fetch("http://ip-api.com/json/");
-        const json = await response.json();
-        if (typeof json.lat === "number" && typeof json.lon === "number") {
-          return [json.lon, json.lat];
-        }
-      } catch (error) {}
-      return middleOfUSA;
-    }
-    
+    //start the map
     init();
     
     
@@ -137,15 +144,15 @@ startbutton.addEventListener('click',  function (e)
         container.innerHTML = ""; // Clear current images
       
         const selectedImages = getRandomImages(imagePool, displayCount);
-        if (selectedImages === "storeimage1.png")
+        if (selectedImages == "storeimage1.png")
         {   //wards road walmart
             correctLocation = [-79.188, 37.3537];
         }
-        else if (selectedImages === "storeimage2.png") {
+        else if (selectedImages == "storeimage2.png") {
             //walmart off towards downtown.
             correctLocation = [-79.210, 37.4107];
         }
-        else if (selectedImages === "storeimage3.png") {
+        else if (selectedImages == "storeimage3.png") {
             //kroger wards road
             correctLocation = [-79.1797, 37.3757];
         }
@@ -157,6 +164,7 @@ startbutton.addEventListener('click',  function (e)
           img.style.margin = "10px";
           container.appendChild(img);
         });
+        startTimer();
       }
       
       // Initial call
@@ -166,15 +174,22 @@ startbutton.addEventListener('click',  function (e)
       
       
 });
-function makeGuess() {
-    const lnglat = new URLSearchParams(window.location.search);
-    alert(lnglat.get('longitude'));
-    if (lnglat) {
-        alert(`You guessed: ${lnglat.lng}, ${lnglat.lat}`);
-      } else {
-        alert("No marker position yet.");
-      }
+
+
+
+
+
+// Start the timer when the page loads or game starts
+function startTimer() {
+  startTime = Date.now();
+  timerInterval = setInterval(() => {
+    //the difference between when timer started and now. convert to seconds from miliseconds.
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    document.getElementById('timer').textContent = `Time: ${elapsed}s`;
+  }, 1000);
 }
 
-
-
+// Stop the timer when puzzle is solved
+function stopTimer() {
+  clearInterval(timerInterval);
+}
