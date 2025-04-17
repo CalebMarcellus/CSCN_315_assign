@@ -50,7 +50,7 @@ async function init() {
       center: middleOfUSA, // default location to look at.
       zoom: 2, // how close the map is
       container: "map-box", //uses the div in map.html called map-box
-      interactive: false, // This disables all mouse/touch/keyboard interaction
+      
     });
   
     //const location = await getLocation();
