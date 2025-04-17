@@ -126,7 +126,7 @@ startbutton.addEventListener('click',  function (e)
 
     const imagePool = [
         "storeimage1.png",
-        "storeimage2.png",
+        "downtown-store.jpg",
         "storeimage3.png",
         
       ];
@@ -148,7 +148,7 @@ startbutton.addEventListener('click',  function (e)
         {   //wards road walmart
             correctLocation = [-79.188, 37.3537];
         }
-        else if (selectedImages == "storeimage2.png") {
+        else if (selectedImages == "downtown-store.jpg") {
             //walmart off towards downtown.
             correctLocation = [-79.210, 37.4107];
         }
