@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+    
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <script type="module" defer src="proj10.js"></script>
+    <script>
+        
+    </script>
+</head>
+<body style="width: 100%;">
+
+<header>
+    <div id="map-logo" class="logo-bar">
+        <img src="Logo.png">
+        
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="list.html">Grocery List</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="login.html">Profile</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stocks.html">Store Stocks</a></li>
+        </ul>
+    </nav>
+    <div id="map-heading">
+        <h1>Store Map</h1>
+    </div>
+</header>
+
+<div class="map-content" >
+    <div class="store-selection-box">
+        <label for="storeSelect">Select a Store</label>
+        <select id="storeSelect">
+            <option value="">--Choose a Store--</option>
+            <option value="store1">Walmart</option>
+            <option value="store2">Target</option>
+            <option value="store3">Kroger</option>
+        </select>
+    </div>
+    <div class="center-content" id="upload-image">
+        
+        <label for="fileinput"><h2>Upload your own custom Image of a Store Map</h2></label>
+        <input type="file" id="fileInput">
+        <pre id="fileContents"></pre>
+    </div> 
+    <div id="imageContainer">
+    </div>
+    <p>You can upload any image file.</p>
+
+    <div id="Geo-header" style="margin-top: 0px;">
+        <img src="navigation_pin_location_map_point_icon_262049.png" alt="" style="background-color: transparent;">
+        <h1>Welcome to Shopguesser</h1>
+    </div>
+    <div id="Geoguesser-Section" style="text-align: center;">
+        <p> Rules are as follows: 
+        </p>
+        <p>1. try to guess what store you are located at within lynchburg.</p>
+        <p>2. use the photo provided to figure where you are then drop the pin on the map where it is.</p>
+        <p>3. each correct guess gives you a point. </p>
+        <div id="Shop-images" style="width: 700px; vertical-align: center;">
+            
+        </div>
+        <button id="StartButton">
+            Reset
+        </button>
+        <div id="map-box">
+
+        </div>
+        <div class="center-content">
+        <h1 style="color: white;">Points:</h1>
+        <span id="point-counter">0</span>
+        <div id="timer">Time: 0s</div>
+        </div>
+        
+    </div>
+</div>
+<!-- Footer Section -->
+<footer class="center-content">
+    <p>&copy; 2025 Shop & Go. All rights reserved.</p>
+    <ul>
+        <li><a href="#privacy-policy">Privacy Policy</a></li>
+        <li><a href="#terms-of-service">Terms of Service</a></li>
+    </ul>
+</footer>
+
+</body>
+</html>

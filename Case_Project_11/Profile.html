@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- May have to delete this section-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile</title>
+    <!-- Link to external CSS file (optional) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script defer src="proj9.js">
+       
+
+    </script>
+    
+</head>
+<body id="profile-body">
+
+    <!-- Header Section -->
+    <header>
+        <div id="profile-logo" class="logo-bar">
+            <img src="Logo.png">
+            
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="list.html">Grocery List</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="stocks.html">Store Stocks</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="center-content" id="profile-content">
+        <div id="profile-text">
+            <h2>Welcome to Your Profile</h2>
+            <p id="welcomeMessage"></p>
+        </div>
+
+        
+    <section id="user-info">
+        <h2>Shopping Preferences</h2>
+        <div id="preferences">
+            
+            <div id="catagories">
+                <p><strong>Preferred Categories:</strong> Electronics, Home Appliances</p>
+                <p>Electronics, Home Appliances</p>
+            </div>
+            <div id="catagories">
+                <p><strong>Favorite Brands:</strong></p>
+                <p>Samsung, LG, Sony</p>
+            </div>
+            <div id="page_preference">
+                <p><strong>Preferred Design:</strong></p>
+                
+                <form action="./Profile.html" id="preference_form" style="width: fit-content;" method="get">
+                    <label>
+                        Background Color:
+                        <input type="color" id="bgColor" name="bgColor" value="#ffffff" style="height: 100px;">
+                    </label>
+                  
+                    <label>
+                        Text Color:
+                        <input type="color" id="textColor" name="textColor" value="#000000" style="height: 100px;">
+                    </label>
+                  
+                      <label>
+                        Font Size:
+                        <select id="fontSize" name="fontSize">
+                          <option value="14px">14px</option>
+                          <option value="16px" selected>16px</option>
+                          <option value="18px">18px</option>
+                          <option value="20px">20px</option>
+                          <option value="24px">24px</option>
+                        </select>
+                      </label>
+                  
+                      <button type="submit" style="margin-top: 10px;">Apply Styles</button>
+                </form>
+            </div>
+            <div id="payment-method">
+                <p><strong>Payment Method:</strong> Credit Card</p>
+                <p>Credit Card</p>
+            </div>
+          
+        </div>
+
+    <!-- Account Information Section -->
+        <h2>Account Information</h2>
+        <div id="Account-Settings">
+            
+            <div id="name_email">
+                <h3><strong>User Information</strong></h3>
+                <p id="display_name" style="text-align: left;"><strong>Username:</strong> john_doe123</p>
+                
+                <p id="display_email" style="text-align: left;"><strong>Email:</strong> johndoe@example.com</p>
+            </div>
+            <div id="contact_information">
+                <h3><strong>Contact Information</strong></h3>
+                <p style="text-align: left;"><strong>Phone Number:</strong> (123) 456-7890</p>
+                <p><strong>Address:</strong> 1971 University Blvd. VA, 24515</p>
+                
+            </div>
+            <div id="sensitive_info">
+                <h3><strong>Sensitive Information</strong></h3>
+                <p id="display_age" style="text-align: left;"><strong>Age</strong></p>
+                
+            </div>
+            
+           
+        </div>
+    </section>
+   
+       
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="center-content">
+        <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+        <ul>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms-of-service">Terms of Service</a></li>
+        </ul>
+    </footer>
+
+    
+
+</body>
+</html>
