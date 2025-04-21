@@ -90,14 +90,9 @@ async function init() {
               alert("Correct! Marker locked in.");
               stopTimer();
           }
-          //store coords in url 
-          const params = new URLSearchParams({
-          longitude: lngLat.lng,
-          latitude: lngLat.lat
-          }).toString();
+          
 
-          //window.location.search = params;
-          window.history.replaceState({}, "", params); // No reload
+     
           
           
          
