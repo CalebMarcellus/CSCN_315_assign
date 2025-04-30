@@ -31,7 +31,7 @@ form.addEventListener("submit", function(event) {
             const phonevalue = phoneNumber.value.trim();
             let curruser = new user();
             let taskregister = new task();
-            if (!taskregister.registerUser(curruser))
+            if (!taskregister.registerUser(namevalue, passwordValue))
             {
                 console.log("user already exist");
                 setError(userExist, "User already exist! Please enter another account.");

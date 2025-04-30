@@ -43,11 +43,16 @@ function getStockDataXHR() {
   }
     
       async function getStockData(UserSymbol, chartName) {
+        try {
         //same thing as XML request but easier.
         //Endpoint url with STock name inputted
         const response = await fetch(`https://data.alpaca.markets/v2/stocks/${UserSymbol}/bars?timeframe=15Min&limit=30`, {
           headers
         });
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Fetch failed: ${response.status} - ${errorText}`);
+        }
         //check to see if it was success if so then parse with json
         const json = await response.json();
         //segment info into bars of time segments making a list of information at different times for chart.
@@ -57,6 +62,10 @@ function getStockDataXHR() {
         const prices = bars.map(bar => bar.c); // closing prices
         
         renderChart(labels, prices, UserSymbol, chartName);
+      } catch (err) {
+        //Sometimes I cant retrieve stock data because I think I ran into the maximum amount fetches from apix
+        console.error("Error fetching stock data:", err);
+      }
       }
     //makes chart using chart.js in html
       function renderChart(labels, data, renderUserSymbol, renderChartName) {
@@ -116,51 +125,57 @@ function getStockDataXHR() {
           }
         });
       }
-    
+    //Get the stock data of walmart, target, and kroger
       getStockData("WMT", "stockChartWalmart");
       getStockData("KR", "stockChartKroger");
       getStockData("TGT", "stockChartTarget");
 
-// jquery.js
 
-$(document).ready(function () {
-   
-  
-    // jQuery UI Autocomplete - Predictive Search
-    const productList = [
-      "AAPL", "WMT", "XOM", "MSFT",
-      "CVX", "GE", "T", "KO",
-      "BBY", "BCC", "CSCO", "NVDA"
-    ];
-  
-    $('#symbolInput').autocomplete({
-      source: productList
-    });
-  });
 
   $(document).ready(function () {
     // jQuery Effect 1: Slide Toggle
     $('#Minimize').click(function () {
-      $('#stock-info').slideToggle(); // Toggles the box visibility with a sliding effect
+      $('#stock-info').slideToggle(); // Toggles the visibility of Get stock info bar with a sliding effect
     });
   
-    // // jQuery Effect 2: Animate
-    // $('#stockChartTarget').on('click', function () {
-    //   $(this).animate({
-    //     width: "300px",
-    //     height: "150px",
-    //     opacity: 0.7
-    //   }, 800);
-    // });
-
+        // jQuery UI Autocomplete - Predictive Search
+        const productList = [
+          "AAPL", "WMT", "XOM", "MSFT",
+          "CVX", "GE", "T", "KO",
+          "BBY", "BCC", "CSCO", "NVDA"
+        ];
+      
+        $('#symbolInput').autocomplete({
+          source: productList
+        });
+        //Keeps track of when the button should shrink or grow
+    let isbig = false;
     $("#Minimize").click(function () {
-      $(this).animate({
-        width: "300px",
-        height: "200px",
-        
-      }, 1000, "swing", function () {
-        
-      });
+      isbig = !isbig
+      if (isbig == true)
+      {
+        $(this).animate({
+          //Let the button grow to this size
+          width: "300px",
+          height: "100px",
+          
+        }, 1000, "swing", function () {
+          
+        });
+      }
+      else
+      {
+        $(this).animate({
+           //Let the button grow to this size
+          width: "200px",
+          height: "50px",
+          
+        }, 1000, "swing", function () {
+          
+        });
+  
+      }
+
     });
 
   

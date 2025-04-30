@@ -30,10 +30,10 @@ export class task {
         
     }
     
-    registerUser(userObject) {
-        let user = JSON.parse(localStorage.getItem(userObject.uName));
+    registerUser(name, passwd) {
+        let user = JSON.parse(sessionStorage.getItem(name));
         
-        if (username === user.uName) {
+        if (sessionStorage.getItem(name)) {
             console.log('Username already exists. Choose a different one.');
             return false;
         }
@@ -41,7 +41,7 @@ export class task {
        
         
     
-        localStorage.setItem(user.uName, JSON.stringify(userObject));
+        sessionStorage.setItem(name, JSON.stringify(passwd));
         console.log('User registered successfully!');
         return true;
     }
