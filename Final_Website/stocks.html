@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Info Viewer</title>
+  <html lang="en">
+
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopGo Home</title>
+    <!-- Link to external CSS file (optional) -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <!--Link to chart javascript-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon"></script>
+    
+    <!--My own javascript-->
+    <script src="proj11.js" defer></script>
+    <script src="final.js"></script>
+
+</head>
+<body id="stockbody">
+    <!-- Header Section -->
+    <header>
+        <div id="stock-logo" class="logo-bar">
+        
+            <h1 class="logo-heading">
+                <span class="shop">Shop</span><span class="and">&</span><span class="go">GO</span>
+            </h1>
+            
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="list.html">Grocery List</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="login.html">Profile</a></li>
+                <li><a href="stocks.html">Store Stocks</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="stock-content">
+    
+        <button id="Minimize" onclick="">Minimize</button>
+    <div id="stock-info">
+        <h2>Stock Info</h2>
+        <input type="search" id="symbolInput" placeholder="Enter symbol (e.g. AAPL)">
+        <div id="suggestions"></div>    
+        <!-- Example using XMLHttpRequest -->
+        <button id="stockButton" onclick="getStockDataXHR()">Get Stock Info (XHR)</button>
+        
+        <div id="stockXhrResult"></div>
+    </div>
+    <div id="stockResult"></div>
+    <h1>Target Stock</h1>
+    <canvas class="stock-background" id="stockChartTarget" ></canvas>
+    <h1>Walmart Stock</h1>
+    <canvas class="stock-background" id="stockChartWalmart" width="600" height="400"></canvas>
+    <h1>Kroger Stock</h1>
+    <canvas class="stock-background" id="stockChartKroger" width="600" height="400"></canvas>
+    </div>
+    <!-- Footer Section -->
+    <footer class="center-content">
+        <p>&copy; 2025 Shop & Go. All rights reserved.</p>
+        <ul>
+            <li><a href="#privacy-policy">Privacy Policy</a></li>
+            <li><a href="#terms-of-service">Terms of Service</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
